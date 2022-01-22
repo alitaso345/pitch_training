@@ -3,7 +3,7 @@ class NotesController < ApplicationController
 
   # GET /notes or /notes.json
   def index
-    @notes = Note.all
+    @notes = Note.order(keyboard_number: :asc).all
   end
 
   # GET /notes/1 or /notes/1.json
@@ -65,6 +65,6 @@ class NotesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def note_params
-      params.require(:note).permit(:name, :file_name)
+      params.require(:note).permit(:name, :file_name, :keyboard_number)
     end
 end

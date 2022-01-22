@@ -16,10 +16,12 @@ ActiveRecord::Schema.define(version: 2022_01_22_082854) do
   enable_extension "plpgsql"
 
   create_table "notes", force: :cascade do |t|
-    t.string "name"
-    t.string "file_name"
+    t.string "name", null: false
+    t.string "file_name", null: false
+    t.integer "keyboard_number", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["keyboard_number"], name: "index_notes_on_keyboard_number", unique: true
   end
 
 end
