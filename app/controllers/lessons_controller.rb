@@ -1,5 +1,5 @@
 class LessonsController < ApplicationController
-  before_action :set_lesson, only: %i[ show edit update destroy ]
+  before_action :set_lesson, only: %i[ show edit update destroy question ]
 
   # GET /lessons or /lessons.json
   def index
@@ -55,6 +55,11 @@ class LessonsController < ApplicationController
       format.html { redirect_to lessons_url, notice: "Lesson was successfully destroyed." }
       format.json { head :no_content }
     end
+  end
+
+  def question
+    @notes = @lesson.notes.order(keyboard_number: :asc)
+    @result = @notes.sample
   end
 
   private

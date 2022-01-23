@@ -1,0 +1,18 @@
+<div class="w-full">
+  <div class="flex justify-between items-center">
+    <h1 class="font-bold text-4xl"><%= @lesson.title %></h1>
+  </div>
+
+  <figure class="my-5">
+    <audio controls src="/sounds/<%= @result.file_name %>" />
+  </figure>
+
+  <div data-controller="lessons">
+    <div hidden data-lessons-target="result" value="<%= @result.name %>"><%= @result.name %></div>
+    <% @notes.each do |note| %>
+      <button data-action="click->lessons#answer" id="<%= note.id %>" value="<%= note.name %>"><%= note.name %></button>
+    <% end %>
+
+    <p data-lessons-target="output"></p>
+  </div>
+</div>
