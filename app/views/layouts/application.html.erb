@@ -12,8 +12,27 @@
   </head>
 
   <body>
-    <main class="container mx-auto mt-10 px-5">
-      <%= yield %>
-    </main>
+    <div class="relative bg-white overflow-hidden">
+      <div class="max-w-7xl mx-auto">
+        <div class="relative z-10 pb-8 bg-white lg:max-w-2xl lg:w-full">
+          <div>
+            <div class="relative pt-6 px-4 sm:px-6">
+              <nav class="relative flex items-center justify-between sm:h-10 lg:justify-start" aria-label="Global">
+                <div class="flex items-center flex-grow flex-shrink-0 lg:flex-grow-0">
+                  <div class="flex items-center justify-between w-full md:w-auto">
+                    <a href="/">
+                      <strong class="text-5xl">PitchTraining</strong>
+                    </a>
+                  </div>
+                </div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      <main class="container max-w-7xl mx-auto px-5">
+        <%= yield %>
+      </main>
+    </div>
   </body>
 </html>
