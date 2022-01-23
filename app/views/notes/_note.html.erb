@@ -1,6 +1,6 @@
 <div id="<%= dom_id note %>">
   <p class="my-5">
-    <strong class="font-medium mb-1">Name:</strong>
+    <strong class="font-medium mb-1">音名:</strong>
     <%= note.name %>
   </p>
 
@@ -9,8 +9,8 @@
   </figure>
 
   <% if action_name != "show" %>
-    <%= link_to "Show this note", note, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
-    <%= link_to 'Edit this note', edit_note_path(note), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
+    <%= link_to "詳細", note, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+    <%= link_to '編集', edit_note_path(note), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
     <hr class="mt-6">
   <% end %>
 </div>
