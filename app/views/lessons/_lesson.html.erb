@@ -10,8 +10,9 @@
   </p>
 
   <% if action_name != "show" %>
-    <%= link_to "Show this lesson", lesson, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
-    <%= link_to 'Edit this lesson', edit_lesson_path(lesson), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
+    <%= link_to 'レッスン開始', question_lesson_path(lesson), class: "mt-2 mr-2 rounded-lg py-3 px-5 bg-blue-600 text-white inline-block font-medium" %>
+    <%= link_to "詳細", lesson, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+    <%= link_to '編集', edit_lesson_path(lesson), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
     <hr class="mt-6">
   <% end %>
 </div>

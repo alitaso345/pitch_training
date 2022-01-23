@@ -8,4 +8,8 @@ export default class extends Controller {
     const output = userResponse === event.target.value  ? '正解' : `不正解。正解は${this.resultTarget.textContent}`
     this.outputTarget.textContent = output
   }
+
+  reload() {
+    location.reload()
+  }
 }

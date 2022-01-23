@@ -10,9 +10,13 @@
   <div data-controller="lessons">
     <div hidden data-lessons-target="result" value="<%= @result.name %>"><%= @result.name %></div>
     <% @notes.each do |note| %>
-      <button data-action="click->lessons#answer" id="<%= note.id %>" value="<%= note.name %>"><%= note.name %></button>
+      <button data-action="click->lessons#answer" id="<%= note.id %>" value="<%= note.name %>" class="rounded-lg py-3 px-5 mb-3 bg-slate-400 text-white inline-block font-medium cursor-pointer"><%= note.name %></button>
     <% end %>
 
-    <p data-lessons-target="output"></p>
+    <p data-lessons-target="output" class="h-10"></p>
+
   </div>
+
+  <button data-controller="lessons" data-action="click->lessons#reload" class="rounded-lg py-3 px-5 bg-blue-600 text-white inline-block font-medium cursor-pointer">もう一度</button>
+  <%= link_to 'レッスンページへ戻る', lesson_path(@lesson), class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
 </div>
