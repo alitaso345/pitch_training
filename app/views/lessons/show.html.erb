@@ -6,8 +6,16 @@
 
     <%= render @lesson %>
 
+    <div class="my-5">
+      <strong>使用する音</strong>
+      <% @lesson.notes.each do |note| %>
+        <p><%= note.name %></p>
+      <% end %>
+    </div>
+
     <%= link_to 'レッスン開始', question_lesson_path(@lesson), class: "mt-2 mr-2 rounded-lg py-3 px-5 bg-blue-600 text-white inline-block font-medium" %>
     <%= link_to '編集', edit_lesson_path(@lesson), class: "mt-2 mr-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+    <%= link_to '音の追加', new_lesson_lesson_target_path(@lesson), class: "mt-2 mr-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium"%>
     <div class="inline-block mr-2">
       <%= button_to '削除', lesson_path(@lesson), method: :delete, class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 font-medium" %>
     </div>
