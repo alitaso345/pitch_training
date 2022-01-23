@@ -10,10 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_01_22_091901) do
+ActiveRecord::Schema.define(version: 2022_01_22_094356) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "lesson_targets", force: :cascade do |t|
+    t.bigint "lesson_id", null: false
+    t.bigint "note_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["lesson_id", "note_id"], name: "index_lesson_targets_on_lesson_id_and_note_id", unique: true
+    t.index ["lesson_id"], name: "index_lesson_targets_on_lesson_id"
+    t.index ["note_id"], name: "index_lesson_targets_on_note_id"
+  end
 
   create_table "lessons", force: :cascade do |t|
     t.string "title", null: false
@@ -31,4 +41,6 @@ ActiveRecord::Schema.define(version: 2022_01_22_091901) do
     t.index ["keyboard_number"], name: "index_notes_on_keyboard_number", unique: true
   end
 
+  add_foreign_key "lesson_targets", "lessons"
+  add_foreign_key "lesson_targets", "notes"
 end
